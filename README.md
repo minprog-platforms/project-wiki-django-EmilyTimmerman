@@ -27,6 +27,7 @@ A Wikipedia-like online encyclopedia that allows you to search for, edit and cre
 - pink = URL name
 - yellow = clickable objects
 - green = user is able to enter text here
+- flowers = logo & header image
 
 
 ![design document sketch by Emily Timmerman](/sketches/211201_designdocument_wiki_etimmerman.jpg)
