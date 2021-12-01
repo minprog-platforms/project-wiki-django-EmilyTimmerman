@@ -3,7 +3,9 @@
 A Wikipedia-like online encyclopedia that allows you to search for, edit and create new entries, as well as requesting a random entry page.
 
 
+
 ## Design Document Information
+
 
 **For this project, 5 to 6 HTML pages are required:**
 1. A homepage
@@ -15,9 +17,16 @@ A Wikipedia-like online encyclopedia that allows you to search for, edit and cre
 
 *Page 2 and 6 may potentially be the same HTML file. If the user types in a title that does not exist the error page will be loaded, otherwise the entry page will be loaded*
 
+
 **When a new page is added, which files need to be changed?**
 - A markdown file called newtitle.md should be added to /entries/
 
 
+
 ## Design Document Sketch
+- pink = URL name
+- yellow = clickable objects
+- green = user is able to enter text here
+
+
 ![design document sketch by Emily Timmerman](/sketches/211201_designdocument_wiki_etimmerman.jpg)
