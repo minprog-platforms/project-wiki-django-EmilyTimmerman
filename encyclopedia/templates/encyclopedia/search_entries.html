@@ -5,10 +5,27 @@
 {% endblock %}
 
 {% block body %}
+
     {% if searched %}
-    <h1>You searched for {{ searched }}</h1>
+    <h1>You searched for "{{ searched }}"</h1>
+
+        {% for item in queries %}
+        <h2>Did you mean?</h2>
+        
+        <ul>
+            <li>
+                <h1><a href="/wiki/{{ item }}">{{ item }}</a></h1>
+            </li>
+        </ul>
+
+        {% empty %}
+        <h2>There is no entry called "{{ searched }}".</h2>
+
+        {% endfor %}
+
     {% else %}
-    <h1>You forgot to enter a search term...</h1> 
+        <h1>You forgot to enter a search term...</h1> 
+
     {% endif %}
 
 {% endblock %}

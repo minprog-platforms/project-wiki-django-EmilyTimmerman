@@ -23,9 +23,18 @@ def entry(request, entry):
 
 def search_entries(request):
     if request.method == "POST":
-        searched = request.POST["searched"]
+        searched = request.POST["searched"].lower()
+
+        query_display = []
+        for page in util.list_entries():
+            if searched == page:
+                return entry(request, page)
+            elif searched in page:
+                query_display.append(page)
+
         return render(request, "encyclopedia/search_entries.html", {
-            "searched": searched
+            "searched": searched,
+            "queries": query_display
         })
     
     else:
