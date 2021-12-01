@@ -1,8 +1,9 @@
-# Application Name
+# Wiki Encyclopedia
 
 A Wikipedia-like online encyclopedia that allows you to search for, edit and create new entries, as well as requesting a random entry page.
 
-## Design Document
+
+## Design Document Information
 
 **For this project, 5 to 6 HTML pages are required:**
 1. A homepage
@@ -17,13 +18,6 @@ A Wikipedia-like online encyclopedia that allows you to search for, edit and cre
 **When a new page is added, which files need to be changed?**
 - A markdown file called newtitle.md should be added to /entries/
 
+
 **Design Document Sketch**
 ![design document sketch by Emily Timmerman](/sketches/211201_designdocument_wiki_etimmerman.jpg)
-
-## Getting Started
-
-TODO: Describe steps to install requirements and get the application running.
-
-
-
-
