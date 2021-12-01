@@ -19,5 +19,5 @@ A Wikipedia-like online encyclopedia that allows you to search for, edit and cre
 - A markdown file called newtitle.md should be added to /entries/
 
 
-**Design Document Sketch**
+## Design Document Sketch
 ![design document sketch by Emily Timmerman](/sketches/211201_designdocument_wiki_etimmerman.jpg)
