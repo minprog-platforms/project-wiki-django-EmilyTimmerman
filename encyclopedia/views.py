@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from . import util
 import markdown2
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -9,33 +11,44 @@ def index(request):
     })
 
 def entry(request, entry):
-    entries = util.list_entries()
-    if entry in entries:
-        text = markdown2.markdown(util.get_entry(entry))
-    else:
-        text = None
-
-    return render(request, "encyclopedia/entry.html", {
-        "title": entry,
-        "entries": entries,
-        "text": text
-    })
-
-def search_entries(request):
-    if request.method == "POST":
-        searched = request.POST["searched"].lower()
-
-        query_display = []
-        for page in util.list_entries():
-            if searched == page:
-                return entry(request, page)
-            elif searched in page:
-                query_display.append(page)
-
-        return render(request, "encyclopedia/search_entries.html", {
-            "searched": searched,
-            "queries": query_display
+    if util.get_entry(entry):
+        return render(request, "encyclopedia/entry.html", {
+            "text": markdown2.markdown(util.get_entry(entry)),
+            "title": entry
         })
-    
     else:
-        return render(request, "encyclopedia/search_entries.html")
+        return render(request, "encyclopedia/notfound.html")
+
+def search(request): 
+    if request.method == "POST":
+        searched = request.POST['q']
+
+        if util.get_entry(searched):
+            return entry(request, searched)
+        else:
+            list_entries = util.list_entries()
+            search_results = []
+
+            for item in list_entries:
+                if searched in item:
+                    search_results.append(item)
+
+            return render(request, 'encyclopedia/search.html',
+            {'searched': searched, 'list': search_results})
+    else:
+        return render(request, 'encyclopedia/search.html',
+        {})
+
+
+'''
+def search(request, ...)
+    if util.get_entry(entry):
+        return render(request, "encyclopedia/entry.html", {
+            "text": markdown2.markdown(util.get_entry(entry)),
+            "title": entry
+        })
+    elif entry in util.list_entries
+        return render(request, "pagina met overeenkomende resultan")
+    else entry:
+    nope not found
+'''
